@@ -14,6 +14,6 @@ class MiDaS(torch.nn.Module):
     x = x / 255.0
     x = (x - 0.45) / 0.225
     x = self.midas(x)
-    x = torch.clamp(x, 0, self.max_distance) / self.max_distance
+    x = torch.clamp(x, 0, self.max_distance) / self.max_distance * 255.0
     x = x.unsqueeze(0)
     return x
